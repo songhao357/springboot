@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.game.trylink.dao.mapper.PlayerMapper">
+ 
+
+    
+    <insert id="addPlayer" >
+        insert into player(name,nickName,passWord) 
+        values(#{name}, #{nickName},#{passWord})
+    </insert>
+ 
+  <insert id="addPlayers" parameterType="java.util.List" >
+        insert into player(name,nickName,passWord) 
+        values
+        <foreach collection="list" item="item" index="index" separator="," >
+          (#{item.name}, #{item.nickName},#{item.passWord})
+        </foreach>
+        
+        
+    </insert>
+ 
+ 
+ </mapper>

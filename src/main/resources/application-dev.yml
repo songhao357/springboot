@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+   datasource:
+      username: root
+      password: 123
+      url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+      driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+    mapper-locations: classpath:com/game/trylink/dao/mapping/*Mapper.xml
+    type-aliases-package: com.game.trylink.dao.bean
+
+#showsql
+logging:
+   level:
+      com:
+         game:
+            trylink:
+               dao:
+                  mapper: debug
+
+    
