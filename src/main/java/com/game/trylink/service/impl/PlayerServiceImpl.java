@@ -20,4 +20,15 @@ public class PlayerServiceImpl implements PlayerService {
 		 playerMapper.addPlayer(player.getName(),player.getNickName(),player.getPassword());
 	}
 
+	@Override
+	public Player selectPlayer(String name, String pwd) {
+		
+		return playerMapper.selectPlayer(name, pwd);
+	}
+
+	@Override
+	public Player checkRepeat(String name) {
+		return playerMapper.selectPlayerByName(name);
+	}
+
 }

@@ -19,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.game.trylink.dao.bean.Player;
 import com.game.trylink.dao.mapper.PlayerMapper;
+import com.game.trylink.service.PlayerService;
 
 
 
@@ -26,10 +27,11 @@ import com.game.trylink.dao.mapper.PlayerMapper;
 class TrylinkApplicationTests {
 
 	@Autowired
-	PlayerMapper playerMapper;
+	PlayerService playerMapper;
 //	
 //	@Autowired
 //	DataSource ds;
+	
 	
 	@Test
 	void testcase() throws ClassNotFoundException, SQLException {
@@ -81,20 +83,12 @@ class TrylinkApplicationTests {
 	
 	@Test
 	void contextLoads() throws SQLException, ClassNotFoundException {
-		Player player = new Player("xiaoming1", "小明1", "213");
-		Player player1 = new Player("xiaoming2", "小明2", "213");
-		Player player2 = new Player("xiaoming3", "小明3", "213");
-		
-		List<Player> players=new ArrayList<Player>();
-		
-		players.add(player);
-		players.add(player1);
-		players.add(player2);
+	
 
 		
-		playerMapper.addPlayers(players);
+		Player selectPlayer = playerMapper.selectPlayer("xiaoming", "123");
 		
-		
+		System.out.println(selectPlayer);
 		
 		
 	}

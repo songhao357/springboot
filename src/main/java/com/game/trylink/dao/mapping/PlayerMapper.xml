@@ -2,22 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.game.trylink.dao.mapper.PlayerMapper">
  
-
+   <resultMap id="player" type="com.game.trylink.dao.bean.Player">
+  <result column="id" jdbcType="INTEGER"  property="id" />
+  <result column="name" jdbcType="VARCHAR" property="name"/>
+  <result column="nickName" jdbcType="VARCHAR" property="nickName"></result>
+  <result column="passWord" jdbcType="VARCHAR" property="passWord"></result> 
+  </resultMap>
     
     <insert id="addPlayer" >
-        insert into player(name,nickName,passWord) 
+        insert into mydb.player(name,nickName,passWord)
         values(#{name}, #{nickName},#{passWord})
     </insert>
- 
+
+    <select id="selectPlayerByName" resultMap="player">
+        select id,name,nickName,passWord from mydb.player where name=#{name}
+    </select>
+
   <insert id="addPlayers" parameterType="java.util.List" >
-        insert into player(name,nickName,passWord) 
+        insert into mydb.player(name,nickName,passWord)
         values
         <foreach collection="list" item="item" index="index" separator="," >
           (#{item.name}, #{item.nickName},#{item.passWord})
         </foreach>
-        
-        
     </insert>
+    
+    <select id="selectPlayer" resultMap="player">
+      select id,name,nickName,passWord from mydb.player where name=#{name} and passWord=#{passWord}
+    </select>
+ 
  
  
  </mapper>

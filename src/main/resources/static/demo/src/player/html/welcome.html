@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+<div style="text-align: right; width:50%; height: 25rem;">
+
+<div style="width: 90%; height: 1.25rem;text-align: right; " onclick="showSignin()" >登录</div>
+<div style="height:0.625rem;"></div>
+<div style="width: 90%; height: 1.25rem; text-align: right;" onclick="showRegister()">注册</div>
+<div style="height:0.625rem;"></div>
+
+<div id="register"  style="text-align: right; display: none;" >
+
+    用户名： <input type="text" id="name"   ><br />
+    昵  称： <input type="text" id="nickName"   ><br />
+    密  码： <input type="password" id="pwd"   /> <br />
+    确认密码<input type="password" id="pwd2"   /><br />
+
+    <button type="button" onclick="register()">注册</button>
+
+</div>
+
+<div id="signin"  >
+
+<div style="text-align: right;">
+
+   用户名 <input type="text" id="name1"   ><br />
+   密码  <input type="password" id="pwd1"   /><br />
+    <button type="button" onclick="signin()">登录</button>
+</div>
+
+</div>
+</div>
+	</body>
+<script src="../../common/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/welcome.js" type="text/javascript" charset="utf-8"></script>
+</html>
